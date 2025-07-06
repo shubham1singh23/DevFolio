@@ -15,7 +15,7 @@ const Certifications = () => {
 
   const fetchCertifications = async () => {
     try {
-      const response = await fetch('/api/certifications');
+      const response = await fetch('https://devfolio-backend-1.onrender.com/api/certifications');
       if (!response.ok) {
         throw new Error('Failed to fetch certifications');
       }
