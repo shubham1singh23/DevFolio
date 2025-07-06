@@ -7,7 +7,7 @@ import AdminEducation from './AdminEducation'
 import AdminCertification from './AdminCertification'
 import AdminProjects from './AdminProjects'
 
-const API_BASE = 'http://localhost:5000/api' // Change if backend is deployed elsewhere
+const API_BASE = 'https://devfolio-backend-1.onrender.com/api' // Change if backend is deployed elsewhere
 
 const AdminDashboard = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(!!localStorage.getItem('adminToken'))

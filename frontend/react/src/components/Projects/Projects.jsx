@@ -9,7 +9,7 @@ const Projects = () => {
   const [projects, setProjects] = useState([])
 
   useEffect(() => {
-    axios.get('http://localhost:5000/api/projects').then(res => setProjects(res.data))
+    axios.get('https://devfolio-backend-1.onrender.com/api/projects').then(res => setProjects(res.data))
   }, [])
 
   const containerVariants = {

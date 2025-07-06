@@ -19,7 +19,7 @@ const Skills = () => {
   const [skills, setSkills] = useState([])
 
   useEffect(() => {
-    axios.get('http://localhost:5000/api/skills').then(res => setSkills(res.data))
+    axios.get('https://devfolio-backend-1.onrender.com/api/skills').then(res => setSkills(res.data))
   }, [])
 
   const containerVariants = {

@@ -4,7 +4,7 @@ import { faGripVertical, faEdit, faTrash, faPlus, faTimes } from '@fortawesome/f
 import axios from 'axios';
 import './AdminProjects.css';
 
-const API_BASE = 'http://localhost:5000/api';
+const API_BASE = 'https://devfolio-backend-1.onrender.com/api';
 
 const AdminProjects = () => {
   const [projects, setProjects] = useState([]);

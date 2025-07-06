@@ -10,7 +10,7 @@ const About = () => {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    axios.get('http://localhost:5000/api/about')
+    axios.get('https://devfolio-backend-1.onrender.com/api/about')
       .then(res => {
         setAbout(res.data)
         setLoading(false)
@@ -49,7 +49,7 @@ const About = () => {
       transition={{ duration: 0.8 }}
     >
       <div className="about-container">
-        <motion.div 
+        <motion.div
           className="about-avatar-wrapper"
           initial={{ scale: 0.8, opacity: 0 }}
           whileInView={{ scale: 1, opacity: 1 }}
@@ -64,8 +64,8 @@ const About = () => {
           />
           <div className="avatar-ring"></div>
         </motion.div>
-        
-        <motion.div 
+
+        <motion.div
           className="about-content"
           initial={{ opacity: 0, x: 20 }}
           whileInView={{ opacity: 1, x: 0 }}
