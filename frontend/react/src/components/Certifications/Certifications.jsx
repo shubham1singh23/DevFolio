@@ -8,7 +8,9 @@ const Certifications = () => {
   const [error, setError] = useState('');
 
   useEffect(() => {
-    fetchCertifications();
+    fetch('https://devfolio-backend-1.onrender.com/api/certifications')
+      .then(res => res.json())
+      .then(data => setCertifications(data));
   }, []);
 
   const fetchCertifications = async () => {

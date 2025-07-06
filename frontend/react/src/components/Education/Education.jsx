@@ -5,7 +5,7 @@ const Education = () => {
   const [education, setEducation] = useState([]);
 
   useEffect(() => {
-    fetch('/api/education')
+    fetch('https://devfolio-backend-1.onrender.com/api/education')
       .then(res => res.json())
       .then(data => setEducation(data));
   }, []);
