@@ -8,25 +8,21 @@ const Certifications = () => {
   const [error, setError] = useState('');
 
   useEffect(() => {
+    setLoading(true);
     fetch('https://devfolio-backend-1.onrender.com/api/certifications')
-      .then(res => res.json())
-      .then(data => setCertifications(data));
+      .then(res => {
+        if (!res.ok) throw new Error('Failed to fetch certifications');
+        return res.json();
+      })
+      .then(data => {
+        setCertifications(data);
+        setLoading(false);
+      })
+      .catch(err => {
+        setError('Failed to load certifications');
+        setLoading(false);
+      });
   }, []);
-
-  const fetchCertifications = async () => {
-    try {
-      const response = await fetch('https://devfolio-backend-1.onrender.com/api/certifications');
-      if (!response.ok) {
-        throw new Error('Failed to fetch certifications');
-      }
-      const data = await response.json();
-      setCertifications(data);
-    } catch (err) {
-      setError('Failed to load certifications');
-    } finally {
-      setLoading(false);
-    }
-  };
 
   // Animation variants
   const containerVariants = {
@@ -117,7 +113,7 @@ const Certifications = () => {
     );
   }
 
-  if (certifications.length === 0) {
+  if (!Array.isArray(certifications) || certifications.length === 0) {
     return (
       <section id="certifications" className="certifications-section">
         <div className="container">
@@ -165,7 +161,7 @@ const Certifications = () => {
         >
           {certifications.map((certification, index) => (
             <motion.div
-              key={certification._id}
+              key={certification._id || index}
               className="certification-card"
               variants={cardVariants}
               whileHover={{
